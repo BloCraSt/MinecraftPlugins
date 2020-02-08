@@ -1,0 +1,10 @@
+name: LoginJW
+version: ${project.version}
+main: loginjw.loginjw.Main
+api-version: 1.13
+commands:
+  login:
+  haslo:
+  nowehaslo:
+  test:
+

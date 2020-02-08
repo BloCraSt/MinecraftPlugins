@@ -1,0 +1,63 @@
+package loginjw.loginjw;
+
+import com.google.gson.JsonElement;
+import net.md_5.bungee.api.ChatColor;
+import net.md_5.bungee.api.chat.*;
+import net.md_5.bungee.chat.TextComponentSerializer;
+import net.minecraft.server.v1_15_R1.ChatMessageType;
+import net.minecraft.server.v1_15_R1.IChatBaseComponent;
+import net.minecraft.server.v1_15_R1.PacketPlayOutChat;
+import org.bukkit.craftbukkit.v1_15_R1.entity.CraftPlayer;
+import org.bukkit.entity.Player;
+
+public class Messages
+{
+
+   /*e.getPlayer().sendMessage(ChatColor.DARK_GREEN + "====================================");
+                    e.getPlayer().sendMessage(ChatColor.GREEN + "Witamy nowego gracza na serverze");
+                    e.getPlayer().sendMessage(ChatColor.GREEN + "Aby z nami pograc musisz zalorzyc konto");
+                    e.getPlayer().sendMessage(ChatColor.GREEN + "/haslo (haslo) (haslo)");
+                    e.getPlayer().sendMessage(ChatColor.DARK_GREEN + "====================================");*/
+
+ /*   e.getPlayer().sendMessage(ChatColor.DARK_GREEN + "====================================================");
+                    e.getPlayer().sendMessage(ChatColor.GREEN + "Witamy cie " + ChatColor.GRAY + e.getPlayer().getName() + ChatColor.GREEN + " ponownie na serverze");
+                    e.getPlayer().sendMessage(ChatColor.GREEN + "Wpisz /login (haslo) ,aby sie zalogowac");
+                    e.getPlayer().sendMessage(ChatColor.DARK_GREEN + "====================================================");*/
+
+    public static TextComponent OnJoin (Player player)
+    {
+
+
+        TextComponent napis = new MessageBuilder().Header("Witaj na serverze","*", ChatColor.DARK_GREEN,ChatColor.GREEN).Get_Message();
+
+        napis.setClickEvent( new ClickEvent( ClickEvent.Action.OPEN_URL, "https://pl.namemc.com/skin/cfec983c354670ae" ) );
+        napis.setHoverEvent( new HoverEvent( HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Goto the Spigot website!").create() ) );
+        player.spigot().sendMessage(napis);
+        return  null;
+    }
+
+    public static TextComponent OnFirstJoin (Player player)
+    {
+        BaseComponent c = new TextComponent("Witam");
+        TextComponent message = new TextComponent( "Click meeeee" );
+        message.addExtra(c);
+        message.addExtra("DSdadasdasa");
+        message.setClickEvent( new ClickEvent( ClickEvent.Action.OPEN_URL, "http://spigotmc.org" ) );
+        message.setHoverEvent( new HoverEvent( HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Goto the Spigot website!").create() ) );
+        player.spigot().sendMessage( message );
+
+
+        return  message;
+    }
+
+
+
+
+
+
+
+
+
+
+
+}
