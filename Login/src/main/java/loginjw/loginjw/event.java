@@ -47,6 +47,7 @@ public class event implements Listener
     
     @EventHandler(priority = EventPriority.LOWEST)
     public boolean Player_Move(final PlayerMoveEvent e) {
+
         if (Main.LoginQueue.contains(e.getPlayer().getName())) {
             e.setCancelled(true);
             return true;
@@ -57,6 +58,7 @@ public class event implements Listener
     @EventHandler(priority = EventPriority.HIGHEST)
     public boolean Player_Exit(final PlayerQuitEvent e)
     {
+        Main.LoginQueue.remove(e.getPlayer().getName());
         String URL = Main.URL + "/plugins/login/Exit/" + e.getPlayer().getUniqueId();
 
         HTTP_Manager.Request(HTTP_Type.POST, URL, "[]", new Callback<Response>() {

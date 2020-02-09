@@ -62,9 +62,7 @@ public class cmd implements CommandExecutor
                 public void OnSucess(Response data) {
                     if(data.Status.equalsIgnoreCase("200"))
                     {
-                        p.sendMessage(ChatColor.DARK_GREEN + "=================================");
-                        p.sendMessage(ChatColor.GREEN + "!        Witamy na serverze     !");
-                        p.sendMessage(ChatColor.DARK_GREEN + "=================================");
+                        Messages.Wiadomosc_Test(p);
                         Main.LoginQueue.remove(p.getName());
                     }
                     if(data.Status.equalsIgnoreCase("406"))
@@ -94,7 +92,7 @@ public class cmd implements CommandExecutor
             object.addProperty("P_Online","1");
             String JsonData = "["+object.toString()+"]";
             String URL = Main.URL+"/Plugins/Login";
-
+                p.sendMessage(URL);
             HTTP_Manager.Request(HTTP_Type.PUT, URL, JsonData, new Callback<Response>() {
                 @Override
                 public void OnSucess(Response data) {

@@ -17,19 +17,22 @@ import java.util.ArrayList;
 
 public final class Main extends JavaPlugin
 {
+    //= "http://jacwolnnode.eu-4.evennode.com";
     public static String URL = "http://jacwolnnode.eu-4.evennode.com";
+   // public static String URL = "http://localhost:5000";
     public static ArrayList<String> LoginQueue = new ArrayList<String>();
     public static JavaPlugin instance;
     public void onEnable() {
         instance = this;
         HTTP_Manager.SetDebugMode(true);
-
-
-        HTTP_Manager.Request(HTTP_Type.GET,URL+"/players","[]", new Callback<Response>() {
+        HTTP_Manager.Request(HTTP_Type.GET,URL+"/","[]", new Callback<Response>() {
             @Override
             public void OnSucess(Response data) {
                if(data.Status.equalsIgnoreCase("200") == false)
+               {
                    Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "Login_JW Problem polaczenia z serverem "+data.Message);
+                //   Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "stop");
+               }
                else
                {
                    Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "Login_JW Pomyslnie podlaczony");
@@ -53,6 +56,6 @@ public final class Main extends JavaPlugin
     {
 
     }
-    
+
 
 }

@@ -50,6 +50,23 @@ public class Messages
         return  message;
     }
 
+    public static void Wiadomosc_Test(Player p)
+    {
+        TextComponent message = new TextComponent( ChatColor.BLACK+"Moja Wiadomosc \n" );
+        message.addExtra(ChatColor.RED+"A to będzie pod spotem \n");
+        message.addExtra(ChatColor.GREEN+"A to jeszcze bardziej \n");
+        message.addExtra(ChatColor.BOLD+"Pogrubiona wiadomosc \n");
+        message.addExtra(ChatColor.ITALIC+"Pochulona ");
+        message.addExtra(ChatColor.MAGIC+"magiczna ");
+        //po najechaniu myszka pojawi sie link
+        message.setClickEvent( new ClickEvent( ClickEvent.Action.OPEN_URL, "http://google.com" ) );
+
+        //po najechaniu myszka na wiadomsc pojawi sie wpisany tekst
+        message.setHoverEvent( new HoverEvent( HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Ustaw własny teks").create() ) );
+        //wysyla wiadomsc do gracza
+        p.spigot().sendMessage( message );
+
+    }
 
 
 

@@ -31,7 +31,7 @@ public class HTTP_Manager {
                         StringBuffer response = new StringBuffer();
                         HttpURLConnection con = (HttpURLConnection) url.openConnection();
                         BufferedReader rd =null;
-                        con.setConnectTimeout(50000);
+                        con.setConnectTimeout(5000);
                         con.setUseCaches(false);
                         con.setRequestProperty("Connection", "Keep-Alive");
                         con.setRequestProperty("Cache-Control", "no-cache");
@@ -84,7 +84,7 @@ public class HTTP_Manager {
                                }
                            });
                     } catch (Exception e) {
-                        Bukkit.getServer().getConsoleSender().sendMessage("NodeJS Error: "+e.getMessage());
+                        Bukkit.getServer().getConsoleSender().sendMessage("LoginJW2 "+URl+" NodeJS Error: "+e.getMessage());
                     }
 
 
