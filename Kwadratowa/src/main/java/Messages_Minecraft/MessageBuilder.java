@@ -1,12 +1,7 @@
-package loginjw.loginjw;
+package Messages_Minecraft;
 
 import net.md_5.bungee.api.ChatColor;
-import net.md_5.bungee.api.chat.ClickEvent;
-import net.md_5.bungee.api.chat.ComponentBuilder;
-import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.TextComponent;
-
-import org.bukkit.entity.Player;
 
 public class MessageBuilder
 {
@@ -63,7 +58,18 @@ public class MessageBuilder
 
         return  this;
     }
-    public  TextComponent Get_Message()
+    public MessageBuilder List(String [] messages,String character,ChatColor color)
+    {
+        for(int i=0;i<messages.length;i++)
+        {
+            String message = character+" "+messages[i]+"\n";
+            TextComponent msg =new TextComponent(color+message);
+            Ret_Message.addExtra(msg);
+        }
+        return this;
+    }
+
+    public TextComponent Get_Message()
     {
         this.Bar(pattern,Bar_color);
         return Ret_Message;

@@ -1,9 +1,10 @@
 package Http_minecraft;
 
 
-import loginjw.loginjw.Main;
+import kwadratowa_jw.kw_jw.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.json.simple.parser.ParseException;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -32,7 +33,7 @@ public class HTTP_Manager {
                         HttpURLConnection con = (HttpURLConnection) url.openConnection();
                         BufferedReader rd =null;
                         con.setConnectTimeout(5000);
-                        con.setReadTimeout(5000);
+                       // con.setReadTimeout(5000);
                         con.setUseCaches(false);
                         con.setRequestProperty("Connection", "Keep-Alive");
                         con.setRequestProperty("Cache-Control", "no-cache");
@@ -72,20 +73,21 @@ public class HTTP_Manager {
                            Response res = new Response();
                            res.Status = String.valueOf(con.getResponseCode());
                            res.Message = response.toString();
+
                          if(Debug)
                          {
-                             Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.GREEN+"Responnse: "+ChatColor.AQUA + res.Message +ChatColor.GREEN + " Status: " + ChatColor.AQUA +res.Status);
+                             Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.GREEN+"Responnse: "+ ChatColor.AQUA + res.Message + ChatColor.GREEN + " Status: " + ChatColor.AQUA +res.Status);
                          }
 
 
                            Bukkit.getScheduler().runTask(Main.Get_Instance(), new Runnable() {
                                @Override
                                public void run() {
-                                   respond_function.OnSucess(res);
+                                       respond_function.OnSucess(res);
                                }
                            });
                     } catch (Exception e) {
-                        Bukkit.getServer().getConsoleSender().sendMessage("NodeJS Error: "+e.getMessage());
+                        Bukkit.getServer().getConsoleSender().sendMessage("Kwadratowa: "+URl+"NodeJS Error: "+e.getMessage());
                     }
 
 

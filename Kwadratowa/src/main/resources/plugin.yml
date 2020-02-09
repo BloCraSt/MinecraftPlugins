@@ -1,0 +1,8 @@
+name: KW_JW
+version: ${project.version}
+main: kwadratowa_jw.kw_jw.Main
+api-version: 1.13
+commands:
+  KM_admin:
+  KM:
+  Test:
