@@ -7,6 +7,7 @@ import net.md_5.bungee.chat.TextComponentSerializer;
 import net.minecraft.server.v1_15_R1.ChatMessageType;
 import net.minecraft.server.v1_15_R1.IChatBaseComponent;
 import net.minecraft.server.v1_15_R1.PacketPlayOutChat;
+import org.bukkit.Bukkit;
 import org.bukkit.craftbukkit.v1_15_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 
@@ -24,28 +25,21 @@ public class Messages
                     e.getPlayer().sendMessage(ChatColor.GREEN + "Wpisz /login (haslo) ,aby sie zalogowac");
                     e.getPlayer().sendMessage(ChatColor.DARK_GREEN + "====================================================");*/
 
-    public static TextComponent OnJoin (Player player)
+    public static void  OnJoin (Player player)
     {
 
+        TextComponent message = new TextComponent( ChatColor.AQUA+"Witaj na serwerze "+ChatColor.RED+player.getDisplayName()+"! \n");
+        message.addExtra(ChatColor.BLUE+"Administracja "+ChatColor.RED+ Bukkit.getServer().getName()+ChatColor.AQUA+" życzy udanej zabawy"+"!");
+        player.spigot().sendMessage( message ); //<- wysylanie do gracza
 
-        TextComponent napis = new MessageBuilder().Header("Witaj na serverze","*", ChatColor.DARK_GREEN,ChatColor.GREEN).Get_Message();
-
-        napis.setClickEvent( new ClickEvent( ClickEvent.Action.OPEN_URL, "https://pl.namemc.com/skin/cfec983c354670ae" ) );
-        napis.setHoverEvent( new HoverEvent( HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Goto the Spigot website!").create() ) );
-        player.spigot().sendMessage(napis);
-        return  null;
     }
 
-    public static TextComponent OnFirstJoin (Player player)
+    public static void OnFirstJoin (Player player)
     {
-        BaseComponent c = new TextComponent("Witam");
-        TextComponent message = new TextComponent( "Click meeeee" );
-        message.addExtra(c);
-        message.addExtra("DSdadasdasa");
-        message.setClickEvent( new ClickEvent( ClickEvent.Action.OPEN_URL, "http://spigotmc.org" ) );
-        message.setHoverEvent( new HoverEvent( HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Goto the Spigot website!").create() ) );
-        player.spigot().sendMessage( message );
-        return  message;
+        TextComponent message = new TextComponent( ChatColor.AQUA+"Witamy cie "+ChatColor.RED+player.getDisplayName()+ChatColor.AQUA+" pierwszy raz na "+ChatColor.DARK_BLUE+Bukkit.getServer().getName()+"! \n" );
+        message.addExtra(ChatColor.AQUA+"Życzymy ci pełnych frajdy godzin na "+ChatColor.DARK_RED+"najlepszym "+ChatColor.AQUA+"serwerze! \n");
+        player.spigot().sendMessage( message ); //<- wysylanie do gracza
+
     }
 
 
@@ -56,7 +50,7 @@ public class Messages
         player.spigot().sendMessage( message );
     }
 
-    public static TextComponent CreatedAccount (Player player)
+    public static void CreatedAccount (Player player)
     {
         BaseComponent c = new TextComponent("Witam");
         TextComponent message = new TextComponent( "Click meeeee" );
@@ -65,20 +59,13 @@ public class Messages
         message.setClickEvent( new ClickEvent( ClickEvent.Action.OPEN_URL, "http://spigotmc.org" ) );
         message.setHoverEvent( new HoverEvent( HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Goto the Spigot website!").create() ) );
         player.spigot().sendMessage( message );
-        return  message;
     }
-    public static TextComponent Password_bad (Player player)
+    public static void Password_bad (Player player)
     {
-        BaseComponent c = new TextComponent("Witam");
-        TextComponent message = new TextComponent( "Click meeeee" );
-        message.addExtra(c);
-        message.addExtra("DSdadasdasa");
-        message.setClickEvent( new ClickEvent( ClickEvent.Action.OPEN_URL, "http://spigotmc.org" ) );
-        message.setHoverEvent( new HoverEvent( HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Goto the Spigot website!").create() ) );
+        TextComponent message = new MessageBuilder().Get_Message("Hasła żeś zapomnioł!?",MessageType.Magic);
         player.spigot().sendMessage( message );
-        return  message;
     }
-    public static TextComponent Password_changed (Player player)
+    public static void Password_changed (Player player)
     {
         BaseComponent c = new TextComponent("Witam");
         TextComponent message = new TextComponent( "Click meeeee" );
@@ -87,7 +74,6 @@ public class Messages
         message.setClickEvent( new ClickEvent( ClickEvent.Action.OPEN_URL, "http://spigotmc.org" ) );
         message.setHoverEvent( new HoverEvent( HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Goto the Spigot website!").create() ) );
         player.spigot().sendMessage( message );
-        return  message;
     }
     public static TextComponent Password_Need_to_set (Player player)
     {

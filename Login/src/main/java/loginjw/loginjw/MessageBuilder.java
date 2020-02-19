@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 
 
 
-
+enum MessageType { OK,Error,Info,Warning,Magic}
 public class MessageBuilder
 {
     int bar_lenght = 45;
@@ -102,6 +102,8 @@ public class MessageBuilder
                 return new ChatColor[] {ChatColor.GRAY,ChatColor.DARK_GRAY};
             case Warning:
                 return new ChatColor[] {ChatColor.YELLOW,ChatColor.GOLD};
+            case Magic:
+                return new ChatColor[] {ChatColor.DARK_PURPLE,ChatColor.MAGIC};
         }
         return new ChatColor[] {ChatColor.GREEN,ChatColor.DARK_GREEN};
     }

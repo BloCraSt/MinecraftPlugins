@@ -27,7 +27,7 @@ public class event implements Listener
     public boolean Player_login(final PlayerJoinEvent e) {
 
 
-
+        e.setJoinMessage(" ");
          String URL = Main.URL + "/players/" + e.getPlayer().getUniqueId();
 
         HTTP_Manager.Request(HTTP_Type.GET, URL, "[]", new Callback<Response>() {
@@ -45,7 +45,7 @@ public class event implements Listener
         });
         return false;
     }
-    
+
     @EventHandler(priority = EventPriority.LOWEST)
     public boolean Player_Move(final PlayerMoveEvent e) {
 
