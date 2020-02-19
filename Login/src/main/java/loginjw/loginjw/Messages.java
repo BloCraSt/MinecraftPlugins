@@ -45,9 +45,74 @@ public class Messages
         message.setClickEvent( new ClickEvent( ClickEvent.Action.OPEN_URL, "http://spigotmc.org" ) );
         message.setHoverEvent( new HoverEvent( HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Goto the Spigot website!").create() ) );
         player.spigot().sendMessage( message );
-
-
         return  message;
+    }
+
+
+
+    public static void AlreadyLogin(Player player)
+    {
+        TextComponent message = new MessageBuilder().Get_Message("Juz jestes zarejestrowany",MessageType.Warning);
+        player.spigot().sendMessage( message );
+    }
+
+    public static TextComponent CreatedAccount (Player player)
+    {
+        BaseComponent c = new TextComponent("Witam");
+        TextComponent message = new TextComponent( "Click meeeee" );
+        message.addExtra(c);
+        message.addExtra("DSdadasdasa");
+        message.setClickEvent( new ClickEvent( ClickEvent.Action.OPEN_URL, "http://spigotmc.org" ) );
+        message.setHoverEvent( new HoverEvent( HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Goto the Spigot website!").create() ) );
+        player.spigot().sendMessage( message );
+        return  message;
+    }
+    public static TextComponent Password_bad (Player player)
+    {
+        BaseComponent c = new TextComponent("Witam");
+        TextComponent message = new TextComponent( "Click meeeee" );
+        message.addExtra(c);
+        message.addExtra("DSdadasdasa");
+        message.setClickEvent( new ClickEvent( ClickEvent.Action.OPEN_URL, "http://spigotmc.org" ) );
+        message.setHoverEvent( new HoverEvent( HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Goto the Spigot website!").create() ) );
+        player.spigot().sendMessage( message );
+        return  message;
+    }
+    public static TextComponent Password_changed (Player player)
+    {
+        BaseComponent c = new TextComponent("Witam");
+        TextComponent message = new TextComponent( "Click meeeee" );
+        message.addExtra(c);
+        message.addExtra("DSdadasdasa");
+        message.setClickEvent( new ClickEvent( ClickEvent.Action.OPEN_URL, "http://spigotmc.org" ) );
+        message.setHoverEvent( new HoverEvent( HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Goto the Spigot website!").create() ) );
+        player.spigot().sendMessage( message );
+        return  message;
+    }
+    public static TextComponent Password_Need_to_set (Player player)
+    {
+        BaseComponent c = new TextComponent("Witam");
+        TextComponent message = new TextComponent( "Click meeeee" );
+        message.addExtra(c);
+        message.addExtra("DSdadasdasa");
+        message.setClickEvent( new ClickEvent( ClickEvent.Action.OPEN_URL, "http://spigotmc.org" ) );
+        message.setHoverEvent( new HoverEvent( HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Goto the Spigot website!").create() ) );
+        player.spigot().sendMessage( message );
+        return  message;
+    }
+    public static TextComponent Already_Login (Player player)
+    {
+       /* BaseComponent c = new TextComponent("Witam");
+        TextComponent message = new TextComponent( "Click meeeee" );
+        message.addExtra(c);
+        message.addExtra("DSdadasdasa");
+        p.sendMessage(org.bukkit.ChatColor.DARK_GREEN + "=================================");
+        p.sendMessage(org.bukkit.ChatColor.GREEN + "!       Juz jestes zalogowany     !");
+        p.sendMessage(org.bukkit.ChatColor.DARK_GREEN + "=================================");
+        message.setClickEvent( new ClickEvent( ClickEvent.Action.OPEN_URL, "http://spigotmc.org" ) );
+        message.setHoverEvent( new HoverEvent( HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Goto the Spigot website!").create() ) );
+        player.spigot().sendMessage( message );
+        return  message;*/return null;
     }
 
     public static void Wiadomosc_Test(Player p)

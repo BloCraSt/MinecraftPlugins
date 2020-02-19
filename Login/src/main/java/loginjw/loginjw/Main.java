@@ -19,7 +19,7 @@ public final class Main extends JavaPlugin
 {
     //= "http://jacwolnnode.eu-4.evennode.com";
     public static String URL = "http://jacwolnnode.eu-4.evennode.com";
-   // public static String URL = "http://localhost:5000";
+ //  public static String URL = "http://localhost:5000";
     public static ArrayList<String> LoginQueue = new ArrayList<String>();
     public static JavaPlugin instance;
     public void onEnable() {

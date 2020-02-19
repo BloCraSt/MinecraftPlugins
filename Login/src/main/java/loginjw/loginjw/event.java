@@ -29,6 +29,7 @@ public class event implements Listener
 
 
          String URL = Main.URL + "/players/" + e.getPlayer().getUniqueId();
+
         HTTP_Manager.Request(HTTP_Type.GET, URL, "[]", new Callback<Response>() {
             @Override
             public void OnSucess(Response data) {
@@ -59,9 +60,9 @@ public class event implements Listener
     public boolean Player_Exit(final PlayerQuitEvent e)
     {
         Main.LoginQueue.remove(e.getPlayer().getName());
-        String URL = Main.URL + "/plugins/login/Exit/" + e.getPlayer().getUniqueId();
+        String URL = Main.URL + "/plugins/login/logout/" + e.getPlayer().getUniqueId();
 
-        HTTP_Manager.Request(HTTP_Type.POST, URL, "[]", new Callback<Response>() {
+        HTTP_Manager.Request(HTTP_Type.GET, URL, "[]", new Callback<Response>() {
             @Override
             public void OnSucess(Response data) {
             }
